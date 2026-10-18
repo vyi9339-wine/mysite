@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索與重塑 | 從數字到葡萄酒的故事</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 圖示庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Noto Serif TC & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        wine: {
+                            50: '#fdf2f4',
+                            100: '#fbe5e9',
+                            200: '#f7ced6',
+                            600: '#9b1c31',
+                            700: '#800f26',
+                            800: '#671023',
+                            900: '#4a0e1a',
+                            950: '#2c070f',
+                        },
+                        amber: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        cream: '#faf7f2',
+                        darkBg: '#181113',
+                        darkCard: '#241a1d',
+                        darkText: '#2c2523'
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #faf7f2;
+            color: #2c2523;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dark body {
+            background-color: #181113;
+            color: #f3f4f6;
+        }
+        .font-serif-custom {
+            font-family: 'Noto Serif TC', serif;
+        }
+        /* 淡入動畫 */
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* 音樂等化器條動畫 */
+        @keyframes soundWave {
+            0%, 100% { height: 4px; }
+            50% { height: 16px; }
+        }
+        .bar-1 { animation: soundWave 1.2s ease-in-out infinite; }
+        .bar-2 { animation: soundWave 0.8s ease-in-out infinite 0.2s; }
+        .bar-3 { animation: soundWave 1.0s ease-in-out infinite 0.4s; }
+    </style>
+</head>
+<body class="bg-cream dark:bg-darkBg text-darkText dark:text-gray-100 antialiased selection:bg-wine-700 selection:text-white transition-colors duration-300">
+
+    <!-- 背景音樂 Audio 標籤 -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://img.ai365.fans/artworks/c833ed7b-aa5f-4a7d-8aa2-7d4324c15041/vcnbj0tc0gd.mp3" type="audio/mpeg">
+        您的瀏覽器不支援音樂播放。
+    </audio>
+
+    <!-- 懸浮背景音樂播放按鈕 -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-white/80 dark:bg-darkCard/90 backdrop-blur-md p-2.5 px-4 rounded-full shadow-2xl border border-wine-900/10 dark:border-wine-500/20 text-wine-900 dark:text-wine-100">
+        <button id="music-toggle-btn" class="flex items-center gap-3 focus:outline-none group" title="開關背景音樂">
+            <div id="music-icon-container" class="w-9 h-9 rounded-full bg-wine-800 text-amber-500 flex items-center justify-center text-sm shadow-md transition-transform group-hover:scale-105">
+                <i class="fa-solid fa-music" id="music-icon"></i>
+            </div>
+            <div class="text-left hidden sm:block">
+                <p class="text-xs font-semibold leading-tight text-wine-900 dark:text-wine-200">背景音樂</p>
+                <p id="music-status-text" class="text-[10px] text-gray-500 dark:text-gray-400">點擊播放</p>
+            </div>
+            <!-- 音樂播放中的聲波視覺 -->
+            <div id="sound-wave" class="hidden flex items-end gap-0.5 h-4 px-1">
+                <span class="w-0.5 bg-wine-700 dark:bg-amber-500 rounded-full bar-1"></span>
+                <span class="w-0.5 bg-wine-700 dark:bg-amber-500 rounded-full bar-2"></span>
+                <span class="w-0.5 bg-wine-700 dark:bg-amber-500 rounded-full bar-3"></span>
+            </div>
+        </button>
+    </div>
+
+    <!-- 導覽列 Navbar -->
+    <header class="fixed top-0 left-0 w-full bg-cream/90 dark:bg-darkBg/90 backdrop-blur-md z-40 border-b border-wine-900/10 dark:border-wine-500/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- 品牌 Logo / 名字 -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-wine-800 text-amber-500 flex items-center justify-center font-serif text-xl font-bold shadow-md group-hover:scale-105 transition-transform">
+                        🍷
+                    </div>
+                    <span class="font-serif-custom font-bold text-xl text-wine-900 dark:text-wine-200 tracking-wider">重塑人生章節</span>
+                </a>
+
+                <!-- 桌機導覽選單 -->
+                <nav class="hidden md:flex items-center space-x-6 font-medium text-sm text-gray-700 dark:text-gray-300">
+                    <a href="#about" class="hover:text-wine-700 dark:hover:text-amber-400 transition-colors py-2">關於我</a>
+                    <a href="#journey" class="hover:text-wine-700 dark:hover:text-amber-400 transition-colors py-2">轉折之旅</a>
+                    <a href="#wine-marketing" class="hover:text-wine-700 dark:hover:text-amber-400 transition-colors py-2">葡萄酒與AI</a>
+                    <a href="#philosophy" class="hover:text-wine-700 dark:hover:text-amber-400 transition-colors py-2">人生理念</a>
+                    <a href="#contact" class="bg-wine-800 hover:bg-wine-700 text-white px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all">與我交流</a>
+                    
+                    <!-- 社群連結按鈕 (FB & LINE) -->
+                    <div class="flex items-center gap-2 pl-2 border-l border-wine-900/10 dark:border-wine-500/20">
+                        <a href="https://www.facebook.com/profile.php?id=61557737701708" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-blue-600/10 hover:bg-blue-600 hover:text-white text-blue-600 dark:text-blue-400 dark:hover:text-white flex items-center justify-center transition-all" title="Facebook 粉絲專頁">
+                            <i class="fa-brands fa-facebook-f text-base"></i>
+                        </a>
+                        <a href="https://lin.ee/TWDN7bp" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-emerald-600/10 hover:bg-emerald-500 hover:text-white text-emerald-600 dark:text-emerald-400 dark:hover:text-white flex items-center justify-center transition-all" title="加入 LINE 好友">
+                            <i class="fa-brands fa-line text-lg"></i>
+                        </a>
+                    </div>
+
+                    <!-- 深淺色模式切換按鈕 (桌機) -->
+                    <button id="theme-toggle-desktop" class="p-2.5 rounded-full bg-wine-100/50 dark:bg-wine-900/40 text-wine-900 dark:text-amber-400 hover:bg-wine-200/50 dark:hover:bg-wine-800/50 transition-colors" title="切換深淺色模式">
+                        <i class="fa-solid fa-moon text-base dark:hidden"></i>
+                        <i class="fa-solid fa-sun text-base hidden dark:block"></i>
+                    </button>
+                </nav>
+
+                <!-- 手機漢堡選單按鈕與深色切換 -->
+                <div class="flex items-center gap-2 md:hidden">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-full bg-wine-100/50 dark:bg-wine-900/40 text-wine-900 dark:text-amber-400 hover:bg-wine-200/50 transition-colors" title="切換深淺色模式">
+                        <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                        <i class="fa-solid fa-sun text-lg hidden dark:block"></i>
+                    </button>
+                    <button id="mobile-menu-btn" type="button" class="p-3 rounded-lg text-wine-900 dark:text-wine-200 hover:bg-wine-100/50 dark:hover:bg-wine-900/30 focus:outline-none" aria-label="切換選單">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機選單彈出下拉框 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream dark:bg-darkCard border-b border-wine-900/10 dark:border-wine-500/10 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#about" class="mobile-link block px-4 py-3 rounded-xl hover:bg-wine-100/60 dark:hover:bg-wine-900/40 font-medium text-gray-800 dark:text-gray-200">關於我</a>
+            <a href="#journey" class="mobile-link block px-4 py-3 rounded-xl hover:bg-wine-100/60 dark:hover:bg-wine-900/40 font-medium text-gray-800 dark:text-gray-200">轉折之旅</a>
+            <a href="#wine-marketing" class="mobile-link block px-4 py-3 rounded-xl hover:bg-wine-100/60 dark:hover:bg-wine-900/40 font-medium text-gray-800 dark:text-gray-200">葡萄酒與AI</a>
+            <a href="#philosophy" class="mobile-link block px-4 py-3 rounded-xl hover:bg-wine-100/60 dark:hover:bg-wine-900/40 font-medium text-gray-800 dark:text-gray-200">人生理念</a>
+            <a href="#contact" class="mobile-link block text-center bg-wine-800 text-white py-3 rounded-xl font-medium shadow">與我交流</a>
+            
+            <!-- 手機版社群按鈕 -->
+            <div class="pt-2 flex items-center justify-around border-t border-wine-900/10 dark:border-wine-500/10">
+                <a href="https://www.facebook.com/profile.php?id=61557737701708" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600/10 text-blue-600 dark:text-blue-400 font-medium text-sm">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://lin.ee/TWDN7bp" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600/10 text-emerald-600 dark:text-emerald-400 font-medium text-sm">
+                    <i class="fa-brands fa-line text-base"></i>
+                    <span>LINE 官方帳號</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首頁 Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10 dark:opacity-20 pointer-events-none">
+            <div class="absolute top-10 -left-20 w-96 h-96 rounded-full bg-wine-600 blur-3xl"></div>
+            <div class="absolute bottom-10 -right-20 w-96 h-96 rounded-full bg-amber-500 blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- 左側文案 -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-wine-100 dark:bg-wine-900/60 text-wine-800 dark:text-amber-400 font-medium text-sm">
+                        <span class="w-2 h-2 rounded-full bg-wine-700 dark:bg-amber-400 animate-pulse"></span>
+                        人生下半場 · 精彩新章節
+                    </div>
+                    <h1 class="font-serif-custom text-4xl sm:text-5xl lg:text-6xl font-extrabold text-wine-900 dark:text-white leading-tight">
+                        用嚴謹邏輯思考<br>
+                        <span class="text-wine-700 dark:text-amber-500">以葡萄酒與 AI 淬鍊新篇章</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        三十年的會計生涯，養成我用數字思考、邏輯分析的扎實底蘊。<br class="hidden sm:inline">
+                        走出舒適圈後，我以葡萄酒的豐富人文與 AI 數位科技，開啟持續學習的全新旅程。
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#journey" class="w-full sm:w-auto px-8 py-4 bg-wine-800 hover:bg-wine-700 text-white font-medium rounded-xl shadow-lg hover:shadow-wine-800/20 transition-all text-center flex items-center justify-center gap-2">
+                            <span>探索我的轉折歷程</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#wine-marketing" class="w-full sm:w-auto px-8 py-4 border-2 border-wine-800 dark:border-amber-500/60 text-wine-900 dark:text-amber-400 hover:bg-wine-100/50 dark:hover:bg-wine-900/30 font-medium rounded-xl transition-all text-center">
+                            葡萄酒與行銷探索
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 右側形象主圖 / 視覺卡片 -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative border-4 border-white dark:border-wine-900 bg-wine-900">
+                            <img src="https://img.ai365.fans/cdn-cgi/image/width=1400,quality=90,format=auto/artworks/c833ed7b-aa5f-4a7d-8aa2-7d4324c15041/3ltng90j26q.jpg" 
+                                 alt="個人大頭照" 
+                                 class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                                 onerror="this.src='https://placehold.co/800x1000/4a0e1a/FFFFFF?text=Portrait'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-wine-950/70 via-transparent to-transparent"></div>
+                            
+                            <!-- 浮動特色卡片 1 -->
+                            <div class="absolute top-6 left-6 bg-white/90 dark:bg-darkCard/90 backdrop-blur-md p-4 rounded-2xl shadow-lg flex items-center gap-3 border border-white/40 dark:border-wine-800/40">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-calculator"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">專業積澱</p>
+                                    <p class="font-bold text-wine-900 dark:text-amber-400 text-sm">30年 會計分析底蘊</p>
+                                </div>
+                            </div>
+
+                            <!-- 浮動特色卡片 2 -->
+                            <div class="absolute bottom-6 right-6 left-6 bg-white/90 dark:bg-darkCard/90 backdrop-blur-md p-5 rounded-2xl shadow-lg border border-white/40 dark:border-wine-800/40">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-wine-600 text-white flex items-center justify-center text-xl shrink-0">
+                                        <i class="fa-solid fa-wine-glass-empty"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-wine-900 dark:text-white">葡萄酒行銷 × AI工具</p>
+                                        <p class="text-xs text-gray-600 dark:text-gray-300">數位時代的持續學習者</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 關於我 About Section -->
+    <section id="about" class="py-20 bg-white/60 dark:bg-darkCard/40 border-y border-wine-900/5 dark:border-wine-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+                <div class="lg:col-span-4 flex justify-center">
+                    <div class="relative w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-amber-500/30 shadow-xl">
+                        <img src="https://img.ai365.fans/cdn-cgi/image/width=1400,quality=90,format=auto/artworks/c833ed7b-aa5f-4a7d-8aa2-7d4324c15041/3ltng90j26q.jpg" 
+                             alt="個人頭像" 
+                             class="w-full h-full object-cover object-center">
+                    </div>
+                </div>
+                <div class="lg:col-span-8 text-center lg:text-left">
+                    <h2 class="font-serif-custom text-3xl sm:text-4xl font-bold text-wine-900 dark:text-amber-400 mb-4">走出舒適圈，遇見無限可能</h2>
+                    <div class="w-16 h-1 bg-amber-500 mx-auto lg:mx-0 rounded-full mb-6"></div>
+                    <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                        三十年的會計生涯，讓我習慣用數字思考、用邏輯分析，也讓我累積了扎實的專業能力。但退休後，我開始思考：當一個熟悉的職業告一段落，人生是否還有其他值得探索的可能？我決定走出舒適圈，為自己開啟新的篇章。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 三大基石 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-cream dark:bg-darkCard p-8 rounded-2xl border border-wine-900/10 dark:border-wine-500/20 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-wine-100 dark:bg-wine-900/60 text-wine-800 dark:text-amber-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-wine-900 dark:text-white mb-3">嚴謹的邏輯基礎</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                        30年會計專業鍛造的洞察力與數字敏感度，是我看待商業與世界最穩固的底座。
+                    </p>
+                </div>
+
+                <div class="bg-cream dark:bg-darkCard p-8 rounded-2xl border border-wine-900/10 dark:border-wine-500/20 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-wine-900 dark:text-white mb-3">多維的終身學習</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                        走進社區大學，透過導覽訓練、排舞與鋼琴練習，多方涉獵新經驗，讓生活永遠保持新鮮與熱情。
+                    </p>
+                </div>
+
+                <div class="bg-cream dark:bg-darkCard p-8 rounded-2xl border border-wine-900/10 dark:border-wine-500/20 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-wine-100 dark:bg-wine-900/60 text-wine-800 dark:text-amber-400 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-wine-bottle"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-wine-900 dark:text-white mb-3">風格與文化連結</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                        沉浸於葡萄酒多變風味與背後文化故事，結合現代線上 AI 行銷工具，將美好事物推廣給更多人。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 人生轉折時間軸 Timeline Section -->
+    <section id="journey" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-wine-700 dark:text-amber-400 font-semibold tracking-wider text-sm uppercase">Transformation</span>
+                <h2 class="font-serif-custom text-3xl sm:text-4xl font-bold text-wine-900 dark:text-white mt-2">人生轉折與探索歷程</h2>
+                <div class="w-16 h-1 bg-amber-500 mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <!-- 時間軸容器 -->
+            <div class="relative max-w-4xl mx-auto">
+                <!-- 中央連接線 (桌機) -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-wine-900/20 dark:bg-wine-500/20"></div>
+
+                <!-- 節點 1: 會計職涯 -->
+                <div class="relative z-10 mb-12 md:mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex-1 md:w-1/2 md:pr-12 text-left md:text-right mb-4 md:mb-0">
+                            <div class="bg-white dark:bg-darkCard p-6 rounded-2xl shadow-sm border border-wine-900/10 dark:border-wine-500/20">
+                                <span class="inline-block px-3 py-1 bg-wine-100 dark:bg-wine-900/60 text-wine-800 dark:text-amber-400 text-xs font-semibold rounded-full mb-2">紮實基石</span>
+                                <h3 class="font-serif-custom text-xl font-bold text-wine-900 dark:text-white">三十年會計生涯</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm leading-relaxed">
+                                    習慣用數字思考、用邏輯分析。累積了極為扎實的財務與分析能力，為後續的所有嘗試提供了穩固的思維邏輯。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-wine-800 text-white flex items-center justify-center font-bold my-2 md:my-0 shadow-md border-4 border-cream dark:border-darkBg z-20">
+                            1
+                        </div>
+                        <div class="flex-1 md:w-1/2 md:pl-12 hidden md:block"></div>
+                    </div>
+                </div>
+
+                <!-- 節點 2: 社區大學多元學習 -->
+                <div class="relative z-10 mb-12 md:mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex-1 md:w-1/2 md:pr-12 hidden md:block"></div>
+                        <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold my-2 md:my-0 shadow-md border-4 border-cream dark:border-darkBg z-20">
+                            2
+                        </div>
+                        <div class="flex-1 md:w-1/2 md:pl-12 text-left mb-4 md:mb-0">
+                            <div class="bg-white dark:bg-darkCard p-6 rounded-2xl shadow-sm border border-wine-900/10 dark:border-wine-500/20">
+                                <span class="inline-block px-3 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-400 text-xs font-semibold rounded-full mb-2">跨界探索</span>
+                                <h3 class="font-serif-custom text-xl font-bold text-wine-900 dark:text-white">走進社區大學</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm leading-relaxed">
+                                    參加導覽訓練、學習排舞、練習鋼琴。從完全不同領域汲取養分，讓退休生活不只是休息，更是一段持續拓展自我的旅程。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 節點 3: 葡萄酒的魅力 -->
+                <div class="relative z-10 mb-12 md:mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex-1 md:w-1/2 md:pr-12 text-left md:text-right mb-4 md:mb-0">
+                            <div class="bg-white dark:bg-darkCard p-6 rounded-2xl shadow-sm border border-wine-900/10 dark:border-wine-500/20">
+                                <span class="inline-block px-3 py-1 bg-wine-100 dark:bg-wine-900/60 text-wine-800 dark:text-amber-400 text-xs font-semibold rounded-full mb-2">品味發現</span>
+                                <h3 class="font-serif-custom text-xl font-bold text-wine-900 dark:text-white">邂逅葡萄酒人文文化</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm leading-relaxed">
+                                    被葡萄酒多變的風味、豐富的文化，以及每款酒背後的故事深深吸引。決心將這份興趣提升為專業，思考如何分享這份魅力。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-wine-800 text-white flex items-center justify-center font-bold my-2 md:my-0 shadow-md border-4 border-cream dark:border-darkBg z-20">
+                            3
+                        </div>
+                        <div class="flex-1 md:w-1/2 md:pl-12 hidden md:block"></div>
+                    </div>
+                </div>
+
+                <!-- 節點 4: AI 與葡萄酒行銷 -->
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex-1 md:w-1/2 md:pr-12 hidden md:block"></div>
+                        <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold my-2 md:my-0 shadow-md border-4 border-cream dark:border-darkBg z-20">
+                            4
+                        </div>
+                        <div class="flex-1 md:w-1/2 md:pl-12 text-left">
+                            <div class="bg-white dark:bg-darkCard p-6 rounded-2xl shadow-sm border border-wine-900/10 dark:border-wine-500/20">
+                                <span class="inline-block px-3 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-400 text-xs font-semibold rounded-full mb-2">創新前行</span>
+                                <h3 class="font-serif-custom text-xl font-bold text-wine-900 dark:text-white">踏入 AI 與線上行銷</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mt-2 text-sm leading-relaxed">
+                                    積極參與 AI 課程，學習運用新技術與新工具，結合線上平台探索數位行銷的無限可能，完成人生角色的優雅轉變。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 葡萄酒與 AI 行銷區塊 Feature Section -->
+    <section id="wine-marketing" class="py-20 bg-wine-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-amber-400 font-semibold tracking-wider text-sm uppercase">Wine & Digital Marketing</span>
+                    <h2 class="font-serif-custom text-3xl sm:text-4xl font-bold mt-2 mb-6">當經典葡萄酒遇上生成式 AI</h2>
+                    <p class="text-wine-100 text-base sm:text-lg leading-relaxed mb-6 font-light">
+                        從最初的個人興趣出發，我開始思考如何將葡萄酒的魅力分享給更多人，進而踏入葡萄酒行銷的領域。
+                    </p>
+                    <p class="text-wine-100 text-base sm:text-lg leading-relaxed mb-8 font-light">
+                        面對以線上平台為主的行銷模式，我也積極參與 AI 課程，學習運用新工具，探索數位行銷的可能性。從會計到葡萄酒行銷，轉變的不只是工作領域，更是看待世界的方式。
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-wine-glass text-amber-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-white mb-1">風味與故事故事化</h4>
+                            <p class="text-xs text-wine-200">挖掘酒莊背後人文故事，轉化為有溫度的內容。</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                            <i class="fa-solid fa-robot text-amber-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold text-white mb-1">AI 賦能數位行銷</h4>
+                            <p class="text-xs text-wine-200">善用新世代 AI 工具進行內容創作與平台推廣。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 互動圖文展示卡片 -->
+                <div class="bg-cream dark:bg-darkCard text-darkText dark:text-gray-100 p-8 rounded-3xl shadow-2xl relative">
+                    <h3 class="font-serif-custom text-2xl font-bold text-wine-900 dark:text-amber-400 mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-sparkles text-amber-500"></i>
+                        新領域的交會與思考
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-wine-50 dark:bg-wine-950/50 border border-wine-100 dark:border-wine-800/40">
+                            <div class="flex items-center gap-3 font-semibold text-wine-900 dark:text-amber-400 mb-1">
+                                <i class="fa-solid fa-check-circle text-wine-700 dark:text-amber-500"></i>
+                                理性與感性的完美結合
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 pl-7">會計的精密數字（理性）與葡萄酒的品味文化（感性）相輔相成。</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-800/30">
+                            <div class="flex items-center gap-3 font-semibold text-amber-900 dark:text-amber-400 mb-1">
+                                <i class="fa-solid fa-check-circle text-amber-600 dark:text-amber-500"></i>
+                                擁抱時代新工具
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 pl-7">不因過往經驗而設限，積極學習 AI，保持與數位時代並駕齊驅。</p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-wine-50 dark:bg-wine-950/50 border border-wine-100 dark:border-wine-800/40">
+                            <div class="flex items-center gap-3 font-semibold text-wine-900 dark:text-amber-400 mb-1">
+                                <i class="fa-solid fa-check-circle text-wine-700 dark:text-amber-500"></i>
+                                價值傳遞與分享
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 pl-7">將好產品透過適合的線上通道，傳遞給同樣懂得品味生活的人。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 人生理念 Philosophy Section -->
+    <section id="philosophy" class="py-20 bg-cream dark:bg-darkBg">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-white dark:bg-darkCard p-8 sm:p-14 rounded-3xl shadow-lg border border-wine-900/10 dark:border-wine-500/20 relative">
+                <i class="fa-solid fa-quote-left text-4xl sm:text-6xl text-wine-200 dark:text-wine-900/60 absolute top-6 left-6"></i>
+                <i class="fa-solid fa-quote-right text-4xl sm:text-6xl text-wine-200 dark:text-wine-900/60 absolute bottom-6 right-6"></i>
+                
+                <h2 class="font-serif-custom text-2xl sm:text-4xl font-bold text-wine-900 dark:text-amber-400 leading-relaxed relative z-10 my-4">
+                    「我相信，過去累積的經驗是基礎，<br class="hidden sm:inline">
+                    而持續學習的能力，將帶領我走向人生下一個階段。」
+                </h2>
+                
+                <p class="text-gray-600 dark:text-gray-300 mt-6 text-base sm:text-lg max-w-2xl mx-auto relative z-10">
+                    人生沒有白走的路。會計給了我嚴謹的眼界，社區大學拓寬了我的心胸，而葡萄酒與 AI 則為我點亮了全新的未來方向。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡與交流 Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-darkCard/40 border-t border-wine-900/5 dark:border-wine-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="font-serif-custom text-3xl sm:text-4xl font-bold text-wine-900 dark:text-amber-400">與我交流與合作</h2>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        無論是葡萄酒行銷交流、AI 工具的運用探討，或是關於人生下半場轉型與學習的心得分享，都非常歡迎與我聯繫！
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <!-- Facebook 聯絡卡片 -->
+                        <a href="https://www.facebook.com/profile.php?id=61557737701708" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-3 rounded-2xl border border-blue-500/20 hover:border-blue-500/50 bg-blue-50/50 dark:bg-blue-950/20 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xl group-hover:scale-105 transition-transform shrink-0">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-xs text-blue-600 dark:text-blue-400 font-semibold">Facebook 粉絲專頁</p>
+                                <p class="font-medium text-gray-800 dark:text-gray-200 text-sm truncate">點擊前往社交流覽</p>
+                            </div>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 ml-auto mr-2"></i>
+                        </a>
+
+                        <!-- LINE 聯絡卡片 -->
+                        <a href="https://lin.ee/TWDN7bp" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-3 rounded-2xl border border-emerald-500/20 hover:border-emerald-500/50 bg-emerald-50/50 dark:bg-emerald-950/20 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-2xl group-hover:scale-105 transition-transform shrink-0">
+                                <i class="fa-brands fa-line"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">LINE 官方帳號</p>
+                                <p class="font-medium text-gray-800 dark:text-gray-200 text-sm truncate">點擊加好友直接傳訊交流</p>
+                            </div>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 ml-auto mr-2"></i>
+                        </a>
+
+                        <div class="flex items-center gap-4 pt-2">
+                            <div class="w-12 h-12 rounded-xl bg-wine-100 dark:bg-wine-900/60 text-wine-800 dark:text-amber-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">電子郵件</p>
+                                <p class="font-semibold text-gray-800 dark:text-gray-200 text-sm">contact@wine-journey.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">關注領域</p>
+                                <p class="font-semibold text-gray-800 dark:text-gray-200 text-sm">葡萄酒行銷 · AI 應用 · 終身學習</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 聯絡表單 -->
+                <div class="lg:col-span-7 bg-cream dark:bg-darkCard p-6 sm:p-8 rounded-3xl border border-wine-900/10 dark:border-wine-500/20">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">您的姓名</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-darkBg dark:text-white focus:ring-2 focus:ring-wine-700 focus:border-transparent outline-none transition" placeholder="例如：王小明">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">電子郵件</label>
+                                <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-darkBg dark:text-white focus:ring-2 focus:ring-wine-700 focus:border-transparent outline-none transition" placeholder="name@example.com">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="topic" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">交流主題</label>
+                            <select id="topic" class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-darkBg dark:text-white focus:ring-2 focus:ring-wine-700 focus:border-transparent outline-none transition bg-white">
+                                <option value="wine">葡萄酒品味與行銷合作</option>
+                                <option value="ai">AI 學習與數位工具探討</option>
+                                <option value="life">終身學習與退休轉型分享</option>
+                                <option value="other">其他交流</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">訊息內容</label>
+                            <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-darkBg dark:text-white focus:ring-2 focus:ring-wine-700 focus:border-transparent outline-none transition" placeholder="請寫下您的想法或欲交流的事項..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-wine-800 hover:bg-wine-700 text-white font-medium rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <span>送出訊息</span>
+                        </button>
+                    </form>
+
+                    <!-- 送出後的提示訊息 -->
+                    <div id="form-message" class="hidden mt-4 p-4 rounded-xl bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 text-center font-medium">
+                        感謝您的來訊！訊息已成功送出，我會盡快回覆您。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 Footer -->
+    <footer class="bg-wine-950 text-wine-200 py-12 border-t border-wine-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:justify-between sm:items-center">
+            <div class="mb-4 sm:mb-0 text-center sm:text-left">
+                <span class="font-serif-custom font-bold text-xl text-white">重塑人生章節</span>
+                <p class="text-xs text-wine-300 mt-1">從會計到葡萄酒行銷 · 持續學習的能力</p>
+            </div>
+            
+            <div class="flex justify-center items-center gap-4 my-4 sm:my-0">
+                <a href="https://www.facebook.com/profile.php?id=61557737701708" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-wine-900/80 hover:bg-blue-600 text-wine-300 hover:text-white flex items-center justify-center transition-colors" title="Facebook 粉專">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://lin.ee/TWDN7bp" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-wine-900/80 hover:bg-emerald-500 text-wine-300 hover:text-white flex items-center justify-center transition-colors" title="LINE 官方帳號">
+                    <i class="fa-brands fa-line text-lg"></i>
+                </a>
+            </div>
+
+            <p class="text-xs text-wine-400">
+                &copy; 2026 個人品牌網站. 版權所有.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 手機漢堡選單切換
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-2xl';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            });
+        });
+
+        // 1. 深淺色模式切換邏輯
+        const themeToggleDesktop = document.getElementById('theme-toggle-desktop');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // 讀取偏好模式
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleDesktop.addEventListener('click', toggleDarkMode);
+        themeToggleMobile.addEventListener('click', toggleDarkMode);
+
+        // 2. 背景音樂控制邏輯
+        const bgMusic = document.getElementById('bg-music');
+        const musicToggleBtn = document.getElementById('music-toggle-btn');
+        const musicIcon = document.getElementById('music-icon');
+        const musicStatusText = document.getElementById('music-status-text');
+        const soundWave = document.getElementById('sound-wave');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicIcon.className = 'fa-solid fa-music';
+                musicStatusText.textContent = '點擊播放';
+                soundWave.classList.add('hidden');
+                isPlaying = false;
+            } else {
+                bgMusic.play().then(() => {
+                    musicIcon.className = 'fa-solid fa-pause';
+                    musicStatusText.textContent = '播放中';
+                    soundWave.classList.remove('hidden');
+                    isPlaying = true;
+                }).catch(err => {
+                    console.log('音樂自動播放不受瀏覽器預設允許，需要手動點擊', err);
+                });
+            }
+        }
+
+        musicToggleBtn.addEventListener('click', toggleMusic);
+
+        // 表單送出處理
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const messageBox = document.getElementById('form-message');
+
+            form.reset();
+            messageBox.classList.remove('hidden');
+
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
