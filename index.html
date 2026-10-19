@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>葡萄酒的故事 - 千年的風土與時光記錄 | Wine Story</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="葡萄酒的故事比許多文明的歷史還要悠長。從八千年前喬治亞的泥罐發酵，到埃及、希臘與羅馬的土地信仰與生活哲學，探索風土、氣候與釀酒工藝交織出的千禧故事。">
+    <meta name="keywords" content="葡萄酒歷史, 風土, Terroir, 喬治亞葡萄酒, 舊世界葡萄酒, 新世界葡萄酒, 酒神戴奧尼索斯, 釀酒文化">
+    <meta name="author" content="葡萄酒的故事">
+    <link rel="canonical" href="https://winestory.example.com">
+    
+    <!-- Open Graph / Facebook / LINE -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://winestory.example.com">
+    <meta property="og:title" content="葡萄酒的故事 - 千年的風土與時光記錄">
+    <meta property="og:description" content="一瓶葡萄酒，是土地的作品，也是時間留下的記錄。每一次開瓶，都有機會遇見一段尚未讀過的故事。">
+    <meta property="og:image" content="https://img.ai365.fans/cdn-cgi/image/width=1400,quality=90,format=auto/artworks/c833ed7b-aa5f-4a7d-8aa2-7d4324c15041/lnkte8x5scm.jpg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+TC:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        wine: {
+                            50: '#FAF4F5',
+                            100: '#F2E6E8',
+                            200: '#E5CCCF',
+                            300: '#D2A5AA',
+                            400: '#B9747D',
+                            500: '#9E4A56',
+                            600: '#803440',
+                            700: '#682832',
+                            800: '#54222B',
+                            900: '#2E1016',
+                            950: '#18070B',
+                        },
+                        gold: {
+                            100: '#FAF3E0',
+                            200: '#F4DEB3',
+                            300: '#E6C380',
+                            400: '#D8A84E',
+                            500: '#8C6221',
+                            600: '#6F4B12',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        cinzel: ['"Cinzel"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Structured Data (JSON-LD) for SEO/GEO/AEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "葡萄酒的故事 - 千年的風土與時光記錄",
+        "image": "https://img.ai365.fans/cdn-cgi/image/width=1400,quality=90,format=auto/artworks/c833ed7b-aa5f-4a7d-8aa2-7d4324c15041/lnkte8x5scm.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Wine Story Studio"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Wine Story Studio"
+        },
+        "datePublished": "2024-01-01",
+        "description": "探索大約八千年前喬治亞地區開啟的葡萄酒釀造文化，了解風土、氣候與釀酒師工藝如何交織成每瓶葡萄酒獨一無二的身世故事。"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "葡萄酒最早源自於哪裡？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "大約八千年前，在今天的喬治亞一帶，人們便已開始使用陶罐（Qvevri）釀造葡萄酒。這是目前考古證實人類最早開始釀造葡萄酒的地方。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "什麼是葡萄酒的「風土」（Terroir）？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "風土包含葡萄生長的土壤成分、陽光照射、微氣候變化、地勢坡度以及當地的自然環境總和。這些因素共同塑造了每一瓶葡萄酒獨特的風味與靈魂。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "舊世界與新世界葡萄酒有什麼差異？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "舊世界（如法國、義大利、西班牙）強調傳統工藝、嚴格的產區法規與風土表現；新世界（如美國、智利、澳洲）則偏向創新技術、強調單一品種風味與現代釀造工藝。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "氣候變遷與年份（Vintage）對葡萄酒有什麼影響？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "年份紀錄了當年度的日照、降雨與氣溫變化。即便同一莊園與品種，氣候差異會影響葡萄的糖分與酸度表現，使每個年份的葡萄酒都有其獨特的個性與保存潛力。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "釀酒時使用的橡木桶（Oak Barrels）扮演什麼角色？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "橡木桶能透過微小氣孔提供適度氧化，使單寧更加柔順，並賦予葡萄酒香草、焦糖、煙燻或香料等豐富層次，使酒體更趨圓潤與複雜。"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        .text-glow {
+            text-shadow: 0 0 15px rgba(216, 168, 78, 0.4);
+        }
+        .text-dark-glow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .bg-wine-glass {
+            background: backdrop-filter;
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-wine-50 text-wine-950 dark:bg-wine-950 dark:text-gray-100 font-sans transition-colors duration-500 ease-in-out selection:bg-wine-600 selection:text-white">
+
+    <!-- Background Audio Element -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://img.ai365.fans/artworks/c833ed7b-aa5f-4a7d-8aa2-7d4324c15041/o446tcz5xqr.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-wine-50/90 dark:bg-wine-950/90 backdrop-blur-md border-b border-wine-900/10 dark:border-wine-800/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <i class="fa-solid fa-wine-glass-empty text-wine-700 dark:text-gold-300 text-2xl transition-transform group-hover:rotate-12"></i>
+                <span class="font-cinzel font-bold text-xl sm:text-2xl tracking-widest text-wine-950 dark:text-gold-300">WINE STORY</span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden lg:flex items-center space-x-8 font-serif font-medium text-wine-900 dark:text-gray-200">
+                <a href="#history" class="hover:text-wine-600 dark:hover:text-gold-300 transition-colors">歷史起源</a>
+                <a href="#terroir" class="hover:text-wine-600 dark:hover:text-gold-300 transition-colors">風土與身世</a>
+                <a href="#faq" class="hover:text-wine-600 dark:hover:text-gold-300 transition-colors">常見問題</a>
+                <a href="#contact" class="hover:text-wine-600 dark:hover:text-gold-300 transition-colors">與我聯繫</a>
+            </div>
+
+            <!-- Right Controls (Music, Theme Toggle, Mobile Menu Toggle) -->
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <!-- Social Links (Desktop) -->
+                <div class="hidden md:flex items-center space-x-2 mr-2 border-r border-wine-900/10 dark:border-wine-800/40 pr-3">
+                    <a href="https://www.facebook.com/profile.php?id=61557737701708" target="_blank" rel="noopener noreferrer" title="Facebook 粉絲專頁"
+                       class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-facebook-f text-sm"></i>
+                    </a>
+                    <a href="https://lin.ee/TWDN7bp" target="_blank" rel="noopener noreferrer" title="LINE 官方帳號"
+                       class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-line text-base"></i>
+                    </a>
+                </div>
+
+                <!-- Music Control Button -->
+                <button id="music-btn" title="切換背景音樂" aria-label="切換背景音樂"
+                    class="flex items-center space-x-2 px-3 py-2 rounded-full border border-wine-900/20 dark:border-gold-300/30 bg-wine-100 dark:bg-wine-900/60 text-wine-900 dark:text-gold-200 hover:scale-105 active:scale-95 transition-all text-xs sm:text-sm font-medium">
+                    <i class="fa-solid fa-music text-wine-600 dark:text-gold-400" id="music-icon"></i>
+                    <span id="music-text" class="hidden sm:inline">背景音樂</span>
+                    <!-- Equalizer Animation Bars -->
+                    <span id="music-bars" class="hidden items-center space-x-0.5 h-3">
+                        <span class="w-0.5 h-full bg-wine-600 dark:bg-gold-400 animate-pulse"></span>
+                        <span class="w-0.5 h-2 bg-wine-600 dark:bg-gold-400 animate-pulse delay-75"></span>
+                        <span class="w-0.5 h-3 bg-wine-600 dark:bg-gold-400 animate-pulse delay-150"></span>
+                    </span>
+                </button>
+
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" title="切換深淺色模式" aria-label="切換深淺色模式"
+                    class="w-10 h-10 rounded-full border border-wine-900/20 dark:border-gold-300/30 bg-wine-100 dark:bg-wine-900/60 text-wine-900 dark:text-gold-300 hover:scale-105 active:scale-95 transition-all flex items-center justify-center">
+                    <i class="fa-solid fa-sun text-amber-500 hidden dark:block text-base"></i>
+                    <i class="fa-solid fa-moon text-wine-800 dark:hidden text-base"></i>
+                </button>
+
+                <!-- Action Button -->
+                <a href="#contact" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-wine-800 hover:bg-wine-700 dark:bg-gold-500 dark:hover:bg-gold-400 text-white dark:text-wine-950 text-xs sm:text-sm font-bold transition-all shadow-md">
+                    與我聯繫
+                </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" title="選單" aria-label="開啟選單"
+                    class="lg:hidden w-10 h-10 rounded-full border border-wine-900/20 dark:border-gold-300/30 bg-wine-100 dark:bg-wine-900/60 text-wine-950 dark:text-gold-300 flex items-center justify-center">
+                    <i class="fa-solid fa-bars text-lg" id="mobile-menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-wine-50 dark:bg-wine-950 border-b border-wine-900/10 dark:border-wine-800/40 px-6 py-4 space-y-3 font-serif font-medium text-wine-950 dark:text-gray-200">
+            <a href="#history" class="block py-2 hover:text-wine-600 dark:hover:text-gold-300 border-b border-wine-900/5 dark:border-wine-900/30">歷史起源</a>
+            <a href="#terroir" class="block py-2 hover:text-wine-600 dark:hover:text-gold-300 border-b border-wine-900/5 dark:border-wine-900/30">風土與身世</a>
+            <a href="#faq" class="block py-2 hover:text-wine-600 dark:hover:text-gold-300 border-b border-wine-900/5 dark:border-wine-900/30">常見問題</a>
+            <a href="#contact" class="block py-2 hover:text-wine-600 dark:hover:text-gold-300">與我聯繫</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Hero Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://img.ai365.fans/cdn-cgi/image/width=1400,quality=90,format=auto/artworks/c833ed7b-aa5f-4a7d-8aa2-7d4324c15041/lnkte8x5scm.jpg" 
+                 alt="葡萄酒莊園與酒杯" 
+                 class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-10000">
+            <div class="absolute inset-0 bg-gradient-to-b from-wine-950/80 via-wine-950/70 to-wine-50 dark:to-wine-950"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center py-16">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-gold-300/40 bg-wine-900/60 text-gold-200 text-xs sm:text-sm font-cinzel tracking-widest uppercase mb-6 shadow-lg">
+                The Heritage of Terroir & Time
+            </span>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white mb-8 tracking-wide leading-tight text-dark-glow">
+                葡萄酒的故事
+            </h1>
+            <p class="text-lg sm:text-2xl text-gold-100/90 font-serif font-light max-w-3xl mx-auto mb-12 leading-relaxed text-dark-glow">
+                比許多文明的歷史還要悠長。<br class="hidden sm:inline">
+                一瓶葡萄酒，是土地的作品，也是時間留下的記錄。
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#history" class="w-full sm:w-auto px-8 py-4 rounded-full bg-wine-700 hover:bg-wine-600 dark:bg-gold-500 dark:hover:bg-gold-400 text-white dark:text-wine-950 font-bold tracking-wider transition-all shadow-xl hover:scale-105 flex items-center justify-center space-x-2">
+                    <span>探索八千年時光之旅</span>
+                    <i class="fa-solid fa-arrow-down text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-24">
+
+        <!-- History Timeline / Origin Section -->
+        <section id="history" class="scroll-mt-28">
+            <div class="text-center mb-12">
+                <span class="font-cinzel text-gold-500 dark:text-gold-400 font-bold text-sm uppercase tracking-widest">CHAPTER I</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-wine-950 dark:text-white mt-1">千年的文明長河</h2>
+                <div class="w-16 h-0.5 bg-wine-700 dark:bg-gold-400 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="p-8 rounded-3xl bg-wine-100/70 dark:bg-wine-900/40 border border-wine-900/10 dark:border-wine-800/50 shadow-md">
+                    <p class="text-lg text-wine-950 dark:text-gray-100 font-serif leading-relaxed mb-6 font-medium">
+                        大約八千年前，在今天的喬治亞一帶，人們便已開始釀造葡萄酒。最初的葡萄酒，也許只是葡萄自然發酵的意外產物，卻從此開啟了人類與葡萄之間漫長的緣分。
+                    </p>
+                    <p class="text-lg text-wine-950 dark:text-gray-100 font-serif leading-relaxed font-medium">
+                        後來，釀酒文化隨著商旅與文明的交流，傳入古埃及、希臘與羅馬，逐漸成為生活、貿易與文化的一部分。
+                    </p>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-wine-900/10 dark:border-wine-800/50 group">
+                    <img src="https://img.ai365.fans/cdn-cgi/image/width=1400,quality=90,format=auto/artworks/c833ed7b-aa5f-4a7d-8aa2-7d4324c15041/3cokn319goh.jpg" 
+                         alt="古老釀酒文明與經典工藝" 
+                         class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-wine-950/80 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-gold-200 text-sm font-serif">傳承八千年的歷史風華與精緻工藝</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Culture & Empire Section -->
+        <section class="p-8 sm:p-12 rounded-3xl bg-wine-100/80 dark:bg-wine-900/50 border border-wine-900/15 dark:border-wine-800/60 shadow-xl">
+            <div class="max-w-3xl mx-auto text-center space-y-6">
+                <span class="font-cinzel text-gold-500 dark:text-gold-400 font-bold text-sm uppercase tracking-widest">CHAPTER II</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-wine-950 dark:text-white">土地、信仰與生活的象徵</h2>
+                <div class="w-16 h-0.5 bg-wine-700 dark:bg-gold-400 mx-auto"></div>
+                
+                <p class="text-lg sm:text-xl text-wine-950 dark:text-gray-100 font-serif leading-relaxed font-medium pt-4">
+                    在古希臘，葡萄酒與酒神戴奧尼索斯的傳說緊密相連；到了羅馬時代，葡萄種植與釀酒技術隨著帝國的疆域傳播，遍及今日法國、義大利、西班牙等地。
+                </p>
+                <p class="text-lg sm:text-xl text-wine-950 dark:text-gray-100 font-serif leading-relaxed font-medium">
+                    葡萄酒不再只是飲品，也成為土地、信仰、生活方式與社會文化的象徵。
+                </p>
+            </div>
+        </section>
+
+        <!-- Terroir & Story Section -->
+        <section id="terroir" class="scroll-mt-28">
+            <div class="text-center mb-12">
+                <span class="font-cinzel text-gold-500 dark:text-gold-400 font-bold text-sm uppercase tracking-widest">CHAPTER III</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-wine-950 dark:text-white mt-1">每一瓶酒，都有自己的身世</h2>
+                <p class="text-wine-800 dark:text-gold-300 font-serif text-base sm:text-lg mt-2 font-medium">
+                    然而，葡萄酒真正迷人的地方，不只是它悠久的歷史，而是每一瓶酒都帶有土地與時間的印記。
+                </p>
+            </div>
+
+            <!-- Original Image Displayed in Terroir Section -->
+            <div class="mb-12 relative rounded-3xl overflow-hidden shadow-2xl border border-wine-900/10 dark:border-wine-800/50 group">
+                <img src="https://img.ai365.fans/cdn-cgi/image/width=1400,quality=90,format=auto/artworks/c833ed7b-aa5f-4a7d-8aa2-7d4324c15041/lnkte8x5scm.jpg" 
+                     alt="喬治亞與古典釀酒歷史" 
+                     class="w-full h-72 sm:h-96 object-cover transform group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-wine-950/80 via-transparent to-transparent flex items-end p-6 sm:p-8">
+                    <div>
+                        <span class="text-gold-300 font-cinzel text-xs uppercase tracking-widest block mb-1">Traditional Fermentation</span>
+                        <p class="text-gold-100 text-base sm:text-lg font-serif">古老泥罐（Qvevri）與地中海的釀酒傳播軌跡</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terroir Elements Interactive Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Sun Card -->
+                <div class="p-6 rounded-2xl bg-wine-100/90 dark:bg-wine-900/60 border border-wine-900/15 dark:border-wine-800/40 shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-wine-950 dark:text-white mb-2">陽光日照</h3>
+                    <p class="text-sm text-wine-900 dark:text-gray-200 font-medium">充足的光照賦予葡萄豐富糖分與糖酸比，是酒體風味結構的關鍵來源。</p>
+                </div>
+
+                <!-- Soil Card -->
+                <div class="p-6 rounded-2xl bg-wine-100/90 dark:bg-wine-900/60 border border-wine-900/15 dark:border-wine-800/40 shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-mountain text-wine-900 dark:text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-wine-950 dark:text-white mb-2">土壤礦物質</h3>
+                    <p class="text-sm text-wine-900 dark:text-gray-200 font-medium">石灰岩、火山灰、石礫等土壤，給予葡萄根系深刻的礦物風味特色。</p>
+                </div>
+
+                <!-- Climate Card -->
+                <div class="p-6 rounded-2xl bg-wine-100/90 dark:bg-wine-900/60 border border-wine-900/15 dark:border-wine-800/40 shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-sky-500/20 text-sky-700 dark:text-sky-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-cloud-sun-rain"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-wine-950 dark:text-white mb-2">年份氣候</h3>
+                    <p class="text-sm text-wine-900 dark:text-gray-200 font-medium">雨量、晝夜溫差與四季變遷，紀錄當年份氣候變化獨一無二的記憶。</p>
+                </div>
+
+                <!-- Winemaker Card -->
+                <div class="p-6 rounded-2xl bg-wine-100/90 dark:bg-wine-900/60 border border-wine-900/15 dark:border-wine-800/40 shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-purple-500/20 text-purple-700 dark:text-purple-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="text-lg font-serif font-bold text-wine-950 dark:text-white mb-2">釀酒師抉擇</h3>
+                    <p class="text-sm text-wine-900 dark:text-gray-200 font-medium">發酵溫度、橡木桶培養與混調工藝，融入釀酒師對風味與品質的獨到詮釋。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regions & Diversity -->
+        <section class="space-y-8">
+            <div class="p-8 sm:p-12 rounded-3xl bg-wine-100/80 dark:bg-wine-900/50 border border-wine-900/15 dark:border-wine-800/60 shadow-xl space-y-6">
+                <p class="text-lg sm:text-xl text-wine-950 dark:text-gray-100 font-serif leading-relaxed font-medium">
+                    法國的優雅、義大利的熱情、西班牙的奔放，以及新世界產區的創新，都讓葡萄酒呈現出不同的面貌。
+                </p>
+                <p class="text-lg sm:text-xl text-wine-950 dark:text-gray-100 font-serif leading-relaxed font-medium">
+                    即使使用相同的葡萄品種，也可能因為產地、氣候與釀造方式的不同，而展現截然不同的風格。
+                </p>
+            </div>
+        </section>
+
+        <!-- Conclusion Quote Section -->
+        <section class="text-center py-12 border-y border-wine-900/10 dark:border-wine-800/40">
+            <i class="fa-solid fa-quote-left text-3xl text-wine-700 dark:text-gold-400 mb-6 block"></i>
+            <blockquote class="text-2xl sm:text-3xl font-serif font-bold text-wine-950 dark:text-gold-200 leading-relaxed max-w-3xl mx-auto mb-6">
+                一瓶葡萄酒，是土地的作品，也是時間留下的記錄。
+            </blockquote>
+            <p class="text-base sm:text-lg text-wine-900 dark:text-gray-200 font-serif max-w-2xl mx-auto leading-relaxed font-medium">
+                當我們舉杯時，喝下的不只是葡萄發酵後的液體，更是一片土地的氣候、一段人類的歷史，以及釀酒師對風味的理解。
+            </p>
+            <p class="text-base sm:text-lg text-wine-900 dark:text-gold-300 font-serif font-semibold mt-4">
+                或許，這正是葡萄酒歷經千年，依然令人著迷的原因：每一次開瓶，都有機會遇見一段尚未讀過的故事。
+            </p>
+        </section>
+
+        <!-- FAQ Section for AEO Optimization -->
+        <section id="faq" class="scroll-mt-28">
+            <div class="text-center mb-10">
+                <span class="font-cinzel text-gold-500 dark:text-gold-400 font-bold text-sm uppercase tracking-widest">KNOWLEDGE & INSIGHTS</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-wine-950 dark:text-white mt-1">常見問題與歷史探索</h2>
+                <p class="text-wine-800 dark:text-gold-300 font-serif text-sm sm:text-base mt-2 font-medium">幫助解答您對葡萄酒歷史與風土文化的好奇</p>
+            </div>
+
+            <div class="space-y-4 max-w-3xl mx-auto">
+                <details class="group bg-wine-100/90 dark:bg-wine-900/60 rounded-2xl border border-wine-900/15 dark:border-wine-800/40 p-6 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-serif font-bold text-lg text-wine-950 dark:text-white">
+                        <span>葡萄酒最早源自於哪裡？</span>
+                        <span class="ml-4 flex-shrink-0 text-wine-700 dark:text-gold-400 group-open:-rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-wine-900 dark:text-gray-200 font-serif leading-relaxed border-t border-wine-900/10 dark:border-wine-800/30 pt-4 font-medium">
+                        大約八千年前，在今天的喬治亞一帶，人們便已開始釀造葡萄酒。最初可能只是葡萄自然發酵的意外產物，後來演變成使用古老陶罐（Qvevri）深埋地下的釀造工藝。
+                    </p>
+                </details>
+
+                <details class="group bg-wine-100/90 dark:bg-wine-900/60 rounded-2xl border border-wine-900/15 dark:border-wine-800/40 p-6 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-serif font-bold text-lg text-wine-950 dark:text-white">
+                        <span>什麼是葡萄酒的「風土」（Terroir）？</span>
+                        <span class="ml-4 flex-shrink-0 text-wine-700 dark:text-gold-400 group-open:-rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-wine-900 dark:text-gray-200 font-serif leading-relaxed border-t border-wine-900/10 dark:border-wine-800/30 pt-4 font-medium">
+                        風土（Terroir）是法文詞彙，指的是葡萄生長環境的綜合因素，包含當地的土壤成分、日照時數、降雨氣候、地形坡度與微氣候。這些自然條件造就了每款酒獨有的口感與靈魂。
+                    </p>
+                </details>
+
+                <details class="group bg-wine-100/90 dark:bg-wine-900/60 rounded-2xl border border-wine-900/15 dark:border-wine-800/40 p-6 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-serif font-bold text-lg text-wine-950 dark:text-white">
+                        <span>舊世界與新世界葡萄酒有何差別？</span>
+                        <span class="ml-4 flex-shrink-0 text-wine-700 dark:text-gold-400 group-open:-rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-wine-900 dark:text-gray-200 font-serif leading-relaxed border-t border-wine-900/10 dark:border-wine-800/30 pt-4 font-medium">
+                        舊世界（如法國、義大利、西班牙）歷史悠久，偏好展現風土特色與傳統優雅工藝；新世界（如美國、智利、澳洲、紐西蘭）則更具創新精神，著重果香展現與現代釀酒科技。
+                    </p>
+                </details>
+
+                <details class="group bg-wine-100/90 dark:bg-wine-900/60 rounded-2xl border border-wine-900/15 dark:border-wine-800/40 p-6 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-serif font-bold text-lg text-wine-950 dark:text-white">
+                        <span>氣候變遷與年份（Vintage）對葡萄酒有什麼影響？</span>
+                        <span class="ml-4 flex-shrink-0 text-wine-700 dark:text-gold-400 group-open:-rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-wine-900 dark:text-gray-200 font-serif leading-relaxed border-t border-wine-900/10 dark:border-wine-800/30 pt-4 font-medium">
+                        年份紀錄了葡萄生長當年的天氣狀況。充足的陽光與理想的雨量能帶來飽滿的風味與結構，而異常的霜害或酷熱則會考驗釀酒師的應變智慧，這也讓每個年份的酒都擁有獨一無二的故事。
+                    </p>
+                </details>
+
+                <details class="group bg-wine-100/90 dark:bg-wine-900/60 rounded-2xl border border-wine-900/15 dark:border-wine-800/40 p-6 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-serif font-bold text-lg text-wine-950 dark:text-white">
+                        <span>釀酒時使用的橡木桶（Oak Barrels）扮演什麼角色？</span>
+                        <span class="ml-4 flex-shrink-0 text-wine-700 dark:text-gold-400 group-open:-rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-wine-900 dark:text-gray-200 font-serif leading-relaxed border-t border-wine-900/10 dark:border-wine-800/30 pt-4 font-medium">
+                        橡木桶能提供微量氧氣促進葡萄酒軟化成熟，同時賦予葡萄酒淡雅的香草、焦糖、烘焙或香料香氣。法國橡木桶多半帶給酒體細緻結構，而美國橡木桶則能帶來更濃郁甜美的香草風味。
+                    </p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="scroll-mt-28">
+            <div class="max-w-2xl mx-auto p-8 sm:p-12 rounded-3xl bg-wine-100/90 dark:bg-wine-900/70 border border-wine-900/15 dark:border-wine-800/50 shadow-2xl">
+                <div class="text-center mb-8">
+                    <span class="font-cinzel text-gold-500 dark:text-gold-400 font-bold text-sm uppercase tracking-widest">GET IN TOUCH</span>
+                    <h2 class="text-3xl font-serif font-bold text-wine-950 dark:text-white mt-1">與我聯繫</h2>
+                    <p class="text-wine-800 dark:text-gold-300 font-serif text-sm mt-2 font-medium">歡迎分享您對葡萄酒的想法，或詢問風土與體驗相關問題</p>
+
+                    <!-- Social Icons inside Contact Section -->
+                    <div class="flex items-center justify-center space-x-4 mt-6">
+                        <a href="https://www.facebook.com/profile.php?id=61557737701708" target="_blank" rel="noopener noreferrer"
+                           class="flex items-center space-x-2 px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-serif text-sm font-bold shadow-md hover:scale-105 transition-all">
+                            <i class="fa-brands fa-facebook text-base"></i>
+                            <span>Facebook 專頁</span>
+                        </a>
+                        <a href="https://lin.ee/TWDN7bp" target="_blank" rel="noopener noreferrer"
+                           class="flex items-center space-x-2 px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-serif text-sm font-bold shadow-md hover:scale-105 transition-all">
+                            <i class="fa-brands fa-line text-lg"></i>
+                            <span>LINE 官方帳號</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Alert Message -->
+                <div id="contact-success" class="hidden mb-6 p-4 rounded-xl bg-emerald-100 border border-emerald-300 text-emerald-800 font-serif text-sm text-center">
+                    <i class="fa-solid fa-circle-check mr-2"></i> 感謝您的訊息！我們已收到您的來信，會盡快回復您。
+                </div>
+                <div id="contact-error" class="hidden mb-6 p-4 rounded-xl bg-rose-100 border border-rose-300 text-rose-800 font-serif text-sm text-center">
+                    <i class="fa-solid fa-triangle-exclamation mr-2"></i> <span id="contact-error-msg">發送失敗，請稍後再試。</span>
+                </div>
+
+                <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                    <!-- Name Field -->
+                    <div>
+                        <label for="contact-name" class="block text-sm font-bold text-wine-950 dark:text-gold-200 mb-2">
+                            您的姓名 <span class="text-wine-600 dark:text-rose-400">*</span>
+                        </label>
+                        <input type="text" id="contact-name" name="name" required placeholder="請輸入姓名" 
+                            class="w-full px-4 py-3 rounded-xl border border-wine-900/20 dark:border-wine-800 bg-wine-50/50 dark:bg-wine-900/40 text-wine-950 dark:text-white placeholder-wine-950/40 dark:placeholder-gray-400 focus:outline-none focus:border-wine-800 dark:focus:border-gold-400 transition-colors font-medium">
+                    </div>
+
+                    <!-- Email Field -->
+                    <div>
+                        <label for="contact-email" class="block text-sm font-bold text-wine-950 dark:text-gold-200 mb-2">
+                            電子郵件 <span class="text-wine-600 dark:text-rose-400">*</span>
+                        </label>
+                        <input type="email" id="contact-email" name="email" required placeholder="example@email.com" 
+                            class="w-full px-4 py-3 rounded-xl border border-wine-900/20 dark:border-wine-800 bg-wine-50/50 dark:bg-wine-900/40 text-wine-950 dark:text-white placeholder-wine-950/40 dark:placeholder-gray-400 focus:outline-none focus:border-wine-800 dark:focus:border-gold-400 transition-colors font-medium">
+                    </div>
+
+                    <!-- Category Field -->
+                    <div>
+                        <label for="contact-category" class="block text-sm font-bold text-wine-950 dark:text-gold-200 mb-2">
+                            詢問主題
+                        </label>
+                        <select id="contact-category" name="category" 
+                            class="w-full px-4 py-3 rounded-xl border border-wine-900/20 dark:border-wine-800 bg-wine-50/50 dark:bg-wine-900/40 text-wine-950 dark:text-white focus:outline-none focus:border-wine-800 dark:focus:border-gold-400 transition-colors font-medium">
+                            <option value="風土與歷史交流">風土與歷史交流</option>
+                            <option value="品酒體驗與建議">品酒體驗與建議</option>
+                            <option value="合作與展演提案">合作與展演提案</option>
+                            <option value="其他事項">其他事項</option>
+                        </select>
+                    </div>
+
+                    <!-- Message Field -->
+                    <div>
+                        <label for="contact-message" class="block text-sm font-bold text-wine-950 dark:text-gold-200 mb-2">
+                            訊息內容 <span class="text-wine-600 dark:text-rose-400">*</span>
+                        </label>
+                        <textarea id="contact-message" name="message" rows="4" required placeholder="請寫下您的想法或欲詢問的內容..." 
+                            class="w-full px-4 py-3 rounded-xl border border-wine-900/20 dark:border-wine-800 bg-wine-50/50 dark:bg-wine-900/40 text-wine-950 dark:text-white placeholder-wine-950/40 dark:placeholder-gray-400 focus:outline-none focus:border-wine-800 dark:focus:border-gold-400 transition-colors font-medium"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center pt-2">
+                        <button type="submit" id="contact-submit-btn" 
+                            class="inline-flex items-center space-x-2 px-8 py-3.5 rounded-full bg-wine-800 hover:bg-wine-700 dark:bg-gold-500 dark:hover:bg-gold-400 text-white dark:text-wine-950 font-bold transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <i class="fa-solid fa-paper-plane" id="submit-icon"></i>
+                            <span id="submit-text">送出訊息</span>
+                        </button>
+                        <p class="mt-3 text-sm text-wine-800/80 dark:text-gold-200/80 font-serif font-medium">
+                            謝謝您的訊息，我們會盡快回覆您！
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-wine-900/10 dark:border-wine-800/40 bg-wine-100/60 dark:bg-wine-950/80 py-12">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-4">
+            <div class="flex items-center justify-center space-x-2 text-wine-800 dark:text-gold-300 font-cinzel text-lg font-bold">
+                <i class="fa-solid fa-wine-glass"></i>
+                <span>WINE STORY</span>
+            </div>
+
+            <!-- Social Links in Footer -->
+            <div class="flex items-center justify-center space-x-4 pt-2">
+                <a href="https://www.facebook.com/profile.php?id=61557737701708" target="_blank" rel="noopener noreferrer" aria-label="Facebook 粉絲專頁"
+                   class="w-10 h-10 rounded-full border border-wine-900/20 dark:border-wine-800 bg-wine-50 dark:bg-wine-900/50 text-wine-900 dark:text-gold-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white hover:scale-110 transition-all flex items-center justify-center">
+                    <i class="fa-brands fa-facebook-f text-base"></i>
+                </a>
+                <a href="https://lin.ee/TWDN7bp" target="_blank" rel="noopener noreferrer" aria-label="LINE 官方帳號"
+                   class="w-10 h-10 rounded-full border border-wine-900/20 dark:border-wine-800 bg-wine-50 dark:bg-wine-900/50 text-wine-900 dark:text-gold-300 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-white hover:scale-110 transition-all flex items-center justify-center">
+                    <i class="fa-brands fa-line text-lg"></i>
+                </a>
+            </div>
+
+            <p class="text-sm text-wine-800 dark:text-gray-400 font-serif font-medium">
+                © <span id="current-year"></span> 葡萄酒的故事. 千年的風土與時光記錄. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('current-year').innerText = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenuIcon.className = "fa-solid fa-xmark text-lg";
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.className = "fa-solid fa-bars text-lg";
+                }
+            });
+
+            // Close mobile menu when clicking any link inside it
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.className = "fa-solid fa-bars text-lg";
+                });
+            });
+        }
+
+        // 1. Theme Switcher (Dark Mode / Light Mode)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // System preference detection or localStorage
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // 2. Background Music Controller
+        const bgMusic = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-btn');
+        const musicIcon = document.getElementById('music-icon');
+        const musicText = document.getElementById('music-text');
+        const musicBars = document.getElementById('music-bars');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicIcon.className = "fa-solid fa-music text-wine-600 dark:text-gold-400";
+                musicText.innerText = "背景音樂";
+                musicBars.classList.add('hidden');
+                musicBars.classList.remove('flex');
+                isPlaying = false;
+            } else {
+                bgMusic.play().then(() => {
+                    musicIcon.className = "fa-solid fa-pause text-wine-600 dark:text-gold-400";
+                    musicText.innerText = "暫停音樂";
+                    musicBars.classList.remove('hidden');
+                    musicBars.classList.add('flex');
+                    isPlaying = true;
+                }).catch(err => {
+                    console.error("播放音訊失敗:", err);
+                });
+            }
+        });
+
+        // Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwMHgfOnA1aKg5PB5Tcvkf3akHYRaE9NMLGukWlbW5U05C-9t7Bjjl-fjW4eR_ve8-Log/exec";
+
+        // Handle Contact Form Submission to Google Apps Script
+        async function handleContactSubmit(event) {
+            if (event) event.preventDefault();
+            
+            const successAlert = document.getElementById('contact-success');
+            const errorAlert = document.getElementById('contact-error');
+            const submitBtn = document.getElementById('contact-submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const submitIcon = document.getElementById('submit-icon');
+
+            if (!successAlert || !errorAlert || !submitBtn) return;
+
+            // 隱藏先前的提示
+            successAlert.classList.add('hidden');
+            errorAlert.classList.add('hidden');
+
+            // 取得表單欄位資料
+            const formData = {
+                timestamp: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }),
+                name: document.getElementById('contact-name')?.value.trim() || '',
+                email: document.getElementById('contact-email')?.value.trim() || '',
+                category: document.getElementById('contact-category')?.value || '',
+                message: document.getElementById('contact-message')?.value.trim() || ''
+            };
+
+            // 按鈕顯示傳送中狀態
+            submitBtn.disabled = true;
+            submitText.innerText = "傳送中...";
+            submitIcon.className = "fa-solid fa-spinner fa-spin";
+
+            try {
+                if (GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL" || !GOOGLE_SCRIPT_URL) {
+                    // 若尚未設置真正的 URL，則模擬發送成功以利前端展示
+                    console.warn("尚未設置 Google Apps Script URL，展示前端模擬效果。");
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                } else {
+                    // 發送 POST 請求至 Google Apps Script
+                    await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors', // 使用 no-cors 跨域存取 Web App
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                }
+
+                // 顯示成功提示並重置表單
+                successAlert.classList.remove('hidden');
+                const formElement = document.getElementById('contact-form');
+                if (formElement) formElement.reset();
+            } catch (err) {
+                console.error("提交表單錯誤:", err);
+                const errorMsgEl = document.getElementById('contact-error-msg');
+                if (errorMsgEl) errorMsgEl.innerText = "發生錯誤，無法傳送訊息。請稍後再試！";
+                errorAlert.classList.remove('hidden');
+            } finally {
+                // 恢復按鈕狀態
+                submitBtn.disabled = false;
+                submitText.innerText = "送出訊息";
+                submitIcon.className = "fa-solid fa-paper-plane";
+
+                // 5 秒後自動隱藏成功或失敗提示
+                setTimeout(() => {
+                    successAlert.classList.add('hidden');
+                    errorAlert.classList.add('hidden');
+                }, 5000);
+            }
+        }
+
+        // Make handleContactSubmit globally accessible on window object to prevent ReferenceError
+        window.handleContactSubmit = handleContactSubmit;
+    </script>
+</body>
+</html>
